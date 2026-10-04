@@ -1,0 +1,23 @@
+{
+  "name": "apm-extension",
+  "productName": "APM for Chrome",
+  "version": "1.0.0",
+  "description": "Fill logins, one-time codes and passkeys from your APM vault.",
+  "private": true,
+  "type": "module",
+  "author": "aaravmaloo",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:watch": "node scripts/build.mjs --watch",
+    "icons": "node scripts/icons.mjs",
+    "ds:sync": "node scripts/sync-design-system.mjs",
+    "zip": "node scripts/build.mjs --zip",
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "devDependencies": {
+    "rolldown": "1.2.3"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
+}
