@@ -370,7 +370,6 @@ function PasskeyGet({ data, port, reinit }) {
         <span className="np-spacer" />
         <A.Button variant="primary" loading={busy} onClick={() => sign()} autoFocus>Sign in</A.Button>
       </div>
-      <div className="sheet-mono mono-small">Signed by APM with ECDSA P-256 · the key never leaves your vault</div>
     </SheetFrame>
   );
 }
