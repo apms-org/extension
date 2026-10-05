@@ -65,7 +65,7 @@ export function PairFlow({ rejected, reachable, via, onDone, compact, initial })
   if (manual) {
     return (
       <form className="pair-body" onSubmit={useToken}>
-        <A.Input id="pair-token" label="Pairing token" placeholder="64 letters and digits" value={tok} onChange={(e) => { setTok(e.target.value); setErr(null); }} invalid={!!err} hint={err || "In APM, open Settings, then Browser extension, and copy the token. In a terminal, pm bridge token --show prints it."} hintTone={err ? "danger" : undefined} className="mono-input" autoComplete="off" spellCheck={false} autoFocus />
+        <A.Input id="pair-token" label="Pairing token" placeholder="64 letters and digits" value={tok} onChange={(e) => { setTok(e.target.value); setErr(null); }} invalid={!!err} hint={err || "In APM, open Settings, then Browser extension, and copy the token. In a terminal, pm extension token --show prints it."} hintTone={err ? "danger" : undefined} className="mono-input" autoComplete="off" spellCheck={false} autoFocus />
         <A.Button variant="primary" block type="submit" loading={phase === "starting"} disabled={!tok.trim()}>Connect</A.Button>
         <button type="button" className="linkbtn" onClick={() => { setManual(false); setErr(null); }}>Connect with a code instead</button>
       </form>

@@ -2,7 +2,7 @@
 
 Fill logins, one-time codes and passkeys from your APM vault, in any Chromium browser.
 
-The extension never opens `vault.dat` and never holds your master password or a private key. It talks to the APM app (or `pm bridge serve`) on `127.0.0.1:41417`, or, when the app is closed, to `pm` itself through Chrome native messaging. Whichever answers decrypts, fills and signs on its behalf.
+The extension never opens `vault.dat` and never holds your master password or a private key. It talks to the APM app (or `pm extension serve`) on `127.0.0.1:41417`, or, when the app is closed, to `pm` itself through Chrome native messaging. Whichever answers decrypts, fills and signs on its behalf.
 
 ## Install
 
@@ -17,9 +17,9 @@ Open `chrome://extensions`, turn on Developer mode, choose **Load unpacked** and
 
 Open the APM app, or run `pm extension link` once in a terminal. The extension finds it and asks to pair on its own:
 
-- APM shows a short code and the browser's name. Check that the popup shows the same code, then choose **Connect** in APM (or answer `y` at the `pm extension link` or `pm bridge serve` prompt). There is nothing to paste.
+- APM shows a short code and the browser's name. Check that the popup shows the same code, then choose **Connect** in APM (or answer `y` at the `pm extension link` or `pm extension serve` prompt). There is nothing to paste.
 - `pm extension link` registers `pm` as the native messaging host `dev.apm.bridge` for the pinned extension ID in every Chromium browser it finds. After that, whenever the app is closed the browser starts `pm` on its own, and the extension sends the same requests over the native port (answers over 512 KiB arrive in parts). The port stays open while the vault is unlocked through `pm`, because `pm` holds the key only while it runs, and closes 30 seconds after the vault locks. When the app opens again, the extension switches back to it within 5 seconds and lets `pm` exit. The vault locks on the auto-lock policy from `pm autolock` or the app's Settings, Sessions.
-- `pm bridge token --show` prints the token for manual pairing from the extension settings, under Connection.
+- `pm extension token --show` prints the token for manual pairing from the extension settings, under Connection.
 - The build pins the extension ID `ioooalainhfihaebgpbmngoaojmfdlac` through the manifest `key`, so the ID stays the same on every machine. The extension already accepts a token returned straight from `/api/pair/start`, so a bridge that trusts that ID can skip the code.
 
 ## What it does

@@ -242,7 +242,7 @@ function ManualToken({ onDone }) {
   };
   return (
     <form className="pair-body" onSubmit={submit}>
-      <A.Input id="opt-token" label="Pairing token" placeholder="64 letters and digits" value={tok} onChange={(e) => { setTok(e.target.value); setErr(null); }} invalid={!!err} hint={err || "In a terminal, pm bridge token --show prints it. In APM, open Settings, then Browser extension."} hintTone={err ? "danger" : undefined} className="mono-input" autoComplete="off" spellCheck={false} autoFocus />
+      <A.Input id="opt-token" label="Pairing token" placeholder="64 letters and digits" value={tok} onChange={(e) => { setTok(e.target.value); setErr(null); }} invalid={!!err} hint={err || "In a terminal, pm extension token --show prints it. In APM, open Settings, then Browser extension."} hintTone={err ? "danger" : undefined} className="mono-input" autoComplete="off" spellCheck={false} autoFocus />
       <A.Button variant="primary" type="submit" loading={busy} disabled={!tok.trim()}>Connect</A.Button>
     </form>
   );
