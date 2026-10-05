@@ -101,7 +101,6 @@ function page(name, p) {
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="ds.css">
 <link rel="stylesheet" href="extension.css">
-<link rel="stylesheet" href="ui.css">
 </head>
 <body>
 <div id="root"></div>
@@ -137,7 +136,6 @@ function statics() {
   copy(path.join(vendor, "react-dom.production.min.js"), path.join(dist, "react-dom.production.min.js"));
   for (const f of fs.readdirSync(path.join(vendor, "fonts"))) copy(path.join(vendor, "fonts", f), path.join(dist, "fonts", f));
   for (const f of fs.readdirSync(path.join(root, "icons"))) if (f.endsWith(".png")) copy(path.join(root, "icons", f), path.join(dist, "icons", f));
-  copy(path.join(src, "ui", "css", "ui.css"), path.join(dist, "ui.css"));
   for (const e of ENTRIES) if (e.page) fs.writeFileSync(path.join(dist, e.name + ".html"), page(e.name, e.page));
   fs.writeFileSync(path.join(dist, "offscreen.html"), OFFSCREEN);
   fs.writeFileSync(path.join(dist, "manifest.json"), JSON.stringify(manifest(), null, 2) + "\n");
